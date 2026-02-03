@@ -9,17 +9,17 @@
 
 
 /* QRCG-C version variables: */
-#define QRCG_C_FULL_VERSION  20260202 /* QRCG-C full version variable (2026/02/02). */
+#define QRCG_C_FULL_VERSION  20260203 /* QRCG-C full version variable (2026/02/03). */
 #define QRCG_C_MAJOR_VERSION 2026     /* QRCG-C major version variable (2026).      */
 #define QRCG_C_MINOR_VERSION 2        /* QRCG-C minor version variable (02).        */
-#define QRCG_C_PATCH_VERSION 2        /* QRCG-C patch version variable (02).        */
+#define QRCG_C_PATCH_VERSION 3        /* QRCG-C patch version variable (03).        */
 
 /* Global variables: */
 #define STANDARD_SCREEN_VALUE 200 /* Default image size. */
 #define QUIET_ZONE_MODULES      4 /* QR spec quiet zone. */
 
 /* Functions prototypes: */
-static void render_qr(unsigned char *img, int img_size, QRcode *qr);
+static void render_qrcode(unsigned char *img, int img_size, QRcode *qr);
 
 /* Main code: */
 int main(const int argc, const char *const argv[])
@@ -41,7 +41,7 @@ int main(const int argc, const char *const argv[])
 		img_size = STANDARD_SCREEN_VALUE;
 	}
 
-	else
+	else if(argc == 3)
 	{
 		img_size = atoi(argv[2]);
 
@@ -49,6 +49,13 @@ int main(const int argc, const char *const argv[])
 		{
 			img_size = STANDARD_SCREEN_VALUE;
 		}
+	}
+
+	else
+	{
+		fprintf(stderr, "Usage: %s <data> [size]\n", argv[0]);
+
+		return 1;
 	}
 
 	img = (unsigned char *)malloc((size_t)(img_size * img_size));
@@ -60,7 +67,17 @@ int main(const int argc, const char *const argv[])
 		return 1;
 	}
 
-	qr = QRcode_encodeString(argv[1], 0, QR_ECLEVEL_M, QR_MODE_8, 1);
+	/********************************************/
+	/* QRcode_encodeString arguments syntax:    */
+	/* String;                                  */
+	/* Symbol version (0 for minimum version);  */
+	/* Error correction level;                  */
+	/* Input format (like UTF-8);               */
+	/* Case sensitive.                          */
+	/* Returns 1 for success and 0 for failure. */
+	/********************************************/
+
+	qr = QRcode_encodeString(argv[1], 0, QR_ECLEVEL_H, QR_MODE_8, 1);
 
 	if(!qr)
 	{
@@ -71,7 +88,7 @@ int main(const int argc, const char *const argv[])
 		return 1;
 	}
 
-	render_qr(img, img_size, qr);
+	render_qrcode(img, img_size, qr);
 
 	if(!stbi_write_png("qr_code.png", img_size, img_size, 1, img, img_size))
 	{
@@ -86,15 +103,13 @@ int main(const int argc, const char *const argv[])
 	return 0;
 }
 
-static void render_qr(unsigned char *img, int img_size, QRcode *qr)
+static void render_qrcode(unsigned char *img, int img_size, QRcode *qr)
 {
 	int qr_size = qr->width;
-	int scale;
+	int scale = img_size / (qr_size + (QUIET_ZONE_MODULES * 2));
 	int margin;
 	int x, y, dx, dy;
 
-	/* Calculate scale (leave quiet zone) */
-	scale = img_size / (qr_size + (QUIET_ZONE_MODULES * 2));
 	if(scale <= 0)
 	{
 		scale = 1;
