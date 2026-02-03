@@ -2,6 +2,14 @@
 
 A QRCode generator application created with C using my onw [C-Utils](https://github.com/paulao255/C-Utils) header, [QREncode](https://github.com/fukuchi/libqrencode) and [STB Image Write](https://github.com/nothings/stb) headers.
 
+Compatible with:
+
+- [x] Windows (not tested yet, if you can test it, send an e-mail to **contactpaulao\@gmail.com**).
+- [x] Linux.
+- [x] Mac OS (not tested yet, if you can test it, send an e-mail to **contactpaulao\@gmail.com**).
+- [x] Android (not tested yet, if you can test it, send an e-mail to **contactpaulao\@gmail.com**).
+- [x] iOS (not tested yet, if you can test it, send an e-mail to **contactpaulao\@gmail.com**).
+
 ## Dependencies
 
 - `GCC` (or `Mingw GCC` for **Windows**).
